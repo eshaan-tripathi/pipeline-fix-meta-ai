@@ -6,3 +6,7 @@ numpy==1.26.4
 openai==1.40.0
 requests==2.32.3
 PyYAML==6.0.2
+<<<<<<< HEAD
+=======
+gradio>=3.53.2
+>>>>>>> f926892144472660f6de4701aecb840f412dd65d
