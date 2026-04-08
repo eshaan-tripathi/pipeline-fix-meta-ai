@@ -22,11 +22,7 @@ from openai import OpenAI
 API_BASE_URL  = os.environ.get("API_BASE_URL", "https://api.openai.com/v1")
 MODEL_NAME    = os.environ.get("MODEL_NAME", "gpt-4o")
 API_KEY       = os.environ.get("HF_TOKEN", "")
-<<<<<<< HEAD
-ENV_BASE_URL  = os.environ.get("ENV_BASE_URL", "http://localhost:7860")
-=======
 ENV_BASE_URL  = os.environ.get("ENV_BASE_URL", "https://huggingface.co/spaces/eshaantripathi/pipline-fix-meta-ai")
->>>>>>> f926892144472660f6de4701aecb840f412dd65d
 
 TASKS              = ["task_easy", "task_medium", "task_hard"]
 MAX_STEPS          = {"task_easy": 5, "task_medium": 10, "task_hard": 15}
