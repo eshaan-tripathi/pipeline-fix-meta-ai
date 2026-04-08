@@ -1,0 +1,60 @@
+name: pipeline-repair-env
+version: "1.0.0"
+description: >
+  A real-world OpenEnv environment where an AI agent debugs and repairs
+  broken Python ETL/data-cleaning pipelines. The agent receives a broken
+  Python script and sample data, submits a repaired version, and is scored
+  by running the script and comparing its output against a golden dataset.
+author: Eshaan Tripathi
+tags:
+  - openenv
+  - data-cleaning
+  - code-repair
+  - etl
+  - real-world
+
+tasks:
+  - id: task_easy
+    name: "Fix broken CSV loader"
+    difficulty: easy
+    description: >
+      A single-file script that crashes due to a renamed column.
+      The agent must identify and fix one KeyError bug.
+
+  - id: task_medium
+    name: "Repair multi-step ETL pipeline"
+    difficulty: medium
+    description: >
+      A 3-step ETL script with type casting errors, NaN propagation,
+      and a date parsing bug. Partial credit awarded per bug fixed.
+
+  - id: task_hard
+    name: "Fix multi-file pipeline with schema drift"
+    difficulty: hard
+    description: >
+      Multiple monthly CSV files with schema drift (renamed columns),
+      silent value errors, and a broken merge. Agent must produce a
+      single clean unified output.
+
+observation_space:
+  type: object
+  fields:
+    broken_code: string
+    error_trace: string
+    sample_rows: string
+    task_id: string
+    step_num: integer
+    max_steps: integer
+
+action_space:
+  type: object
+  fields:
+    edited_code: string
+
+reward:
+  range: [0.0, 1.0]
+  type: continuous
+  description: >
+    Partial credit at each step based on how close the script output
+    is to the golden dataframe (row count, column names, value accuracy).
+    Step penalty of -0.05 per wasted step. Crash penalty -0.1.
