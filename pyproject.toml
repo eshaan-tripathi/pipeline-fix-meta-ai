@@ -1,7 +1,6 @@
-
 [build-system]
-requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "pipeline-repair-env"
@@ -14,21 +13,25 @@ keywords = ["openenv", "reinforcement-learning", "data-cleaning", "etl", "pipeli
 
 dependencies = [
     "fastapi==0.115.0",
-    "uvicorn==0.30.6",
+    "uvicorn[standard]==0.30.6",
     "pydantic==2.7.4",
     "pandas==2.2.2",
     "numpy==1.26.4",
     "openai==1.40.0",
     "requests==2.32.3",
     "PyYAML==6.0.2",
+    "openenv-core>=0.2.0",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "httpx>=0.27"]
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["tasks*", "graders*"]
-
 [project.scripts]
-serve = "server:app"
+serve = "uvicorn:main"
+start-server = "server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tasks", "graders", "server"]
+
+[dependency-groups]
+dev = ["pytest>=8.0", "httpx>=0.27"]
