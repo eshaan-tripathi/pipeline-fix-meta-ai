@@ -1,3 +1,14 @@
+---
+title: Pipeline Fix — Meta AI
+emoji: 🛠️
+colorFrom: blue
+colorTo: green
+sdk: gradio
+sdk_version: "3.42.0"
+python_version: "3.11"
+app_file: server.py
+pinned: false
+---
 # Pipeline Repair — OpenEnv Environment
 
 An OpenEnv-compliant environment where an AI agent debugs and repairs broken Python ETL/data-cleaning pipelines.
