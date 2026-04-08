@@ -1,11 +1,9 @@
 ---
-title: Pipeline Fix — Meta AI
+title: Pipeline Repair Env
 emoji: 🛠️
 colorFrom: blue
 colorTo: green
-sdk: gradio
-sdk_version: "3.53.1"
-python_version: "3.11"
+sdk: docker
 app_file: app.py
 pinned: false
 ---
