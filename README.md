@@ -1,18 +1,11 @@
 ---
-title: Pipeline Repair Env
-emoji: 🛠️
-colorFrom: blue
-colorTo: green
-sdk: docker
-app_file: app.py
 title: Pipeline Fix — Meta AI
 emoji: 🛠️
 colorFrom: blue
 colorTo: green
 sdk: gradio
-sdk_version: "3.42.0"
-python_version: "3.11"
-app_file: server.py
+sdk_version: "3.53.1"
+app_file: app.py
 pinned: false
 ---
 # Pipeline Repair — OpenEnv Environment
